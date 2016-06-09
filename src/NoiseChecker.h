@@ -10,23 +10,39 @@
 
 #include "SecondCounter.h"
 #include "RangeLearner.h"
+#include "DigitalController.h"
 
+/**
+ * This class is responsible for read noise sensor and according to some criteria
+ * to consider noisy
+ */
 class NoiseChecker {
 private:
-	//Leitura minima
-	int const MIN_NOISE_LEVEL = 0;
-	int const MAX_NOISE_LEVEL = 100;
+	static const int MIN_NOISE_LEVEL = 0;
+	static const int MAX_NOISE_LEVEL = 100;
+	static const int LED_NOISE_PIN = 48;
+	static const int SECONDS_TO_LEARN = 10;
+	static const int SECONDS_WAIT_NEXT_READ = 3;
 
-	int const THRESHOLD = 60; //Baseado no MIN_NOISE_LEVEL e MAX_NOISE_LEVEL
-	int const MAX_SECONDS_CONSIDER_NOISY = 10;
+	//Based on MIN_NOISE_LEVEL e MAX_NOISE_LEVEL
+	//After this THRESHOLD it is identified a noise
+	static const int THRESHOLD = 75;
 
-	int const MAX_NOISES = 3;
-	bool noisy=false;
-	unsigned short noisyCount=0;
-	unsigned int elapsedTime=0;
-	SecondCounter scNoise;
+	//If MAX_NOISE was not reached in MAX_SECONDS_CONSIDER_NOISY, start counting again
+	static const int MAX_SECONDS_CONSIDER_NOISY = 15;
+
+	//MAX_NOISES to consider noisy
+	static const int MAX_NOISES = 3;
+
+	bool noisy = false;
+	unsigned short noisyCount = 0;
+	unsigned int elapsedTime = 0;
+
+	SecondCounter scLedNoise;
+	SecondCounter scNoiseNextRead;
 	SecondCounter scCleaner;
 	RangeLearner rangeLearner;
+	DigitalController ledController;
 
 public:
 	NoiseChecker();

@@ -10,6 +10,13 @@
 #include "GaterminatorApp.h"
 //add your includes for the project gaterminator here
 
+namespace {
+
+const int LOOP_DELAY = 50;
+
+}
+
+
 GaterminatorApp m_app;
 
 //Do not add code below this line

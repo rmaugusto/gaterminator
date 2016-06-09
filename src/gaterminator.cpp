@@ -10,5 +10,5 @@ void setup()
 void loop()
 {
 	m_app.loop();
-	delay(50);
+	delay(LOOP_DELAY);
 }

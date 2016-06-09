@@ -8,6 +8,9 @@
 #ifndef SECONDCOUNTER_H_
 #define SECONDCOUNTER_H_
 
+/**
+ * This class is responsible for a timer in seconds based on milliseconds since application is running.
+ */
 class SecondCounter {
 private:
 	int maxSeconds=0;
@@ -18,9 +21,6 @@ private:
 public:
 	SecondCounter();
 	virtual ~SecondCounter();
-	/**
-	 * Deve ser executado sempre que o loop for executado para fazer a leitura de segundos
-	 */
 	void hit();
 	void reset();
 	int getSeconds() const;

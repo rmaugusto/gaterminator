@@ -134,8 +134,9 @@ src/gaterminator.cpp.o: ../src/gaterminator.cpp ../src/gaterminator.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino/USB/USBAPI.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino/RingBuffer.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino/Stream.h \
- ../src/GaterminatorApp.h ../src/NoiseChecker.h ../src/SecondCounter.h \
- ../src/RangeLearner.h ../src/definitions.h
+ ../src/GaterminatorApp.h ../src/DigitalController.h \
+ ../src/NoiseChecker.h ../src/SecondCounter.h ../src/RangeLearner.h \
+ ../src/definitions.h
 
 ../src/gaterminator.h:
 
@@ -410,6 +411,8 @@ C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\a
 C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino/Stream.h:
 
 ../src/GaterminatorApp.h:
+
+../src/DigitalController.h:
 
 ../src/NoiseChecker.h:
 

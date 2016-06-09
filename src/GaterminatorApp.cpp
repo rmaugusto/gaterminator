@@ -16,23 +16,45 @@ GaterminatorApp::~GaterminatorApp() {
 
 void GaterminatorApp::setup() {
 
-	//Setup da porta serial para debug
-	//Serial.begin(9600);
-	Serial.begin(115200);
+	//Setup serial port
+	Serial.begin(SERIAL_BAUD_RATE);
 
+	alertEmitter.setup(ALERT_PIN, OUTPUT);
 	noiseChecker.setup();
-	scAlert.setMaxSeconds(20);
-
+	scAlertActivator.setMaxSeconds(200);
+	scAlertActivator.setWorking(false);
+	noisyStarted = false;
 }
 
 void GaterminatorApp::loop() {
-	noiseChecker.hit();
 
-	if( noiseChecker.isNoisy() ){
-//		scAlert.reset();
-		Serial.println("SECARDOR NELEEEEEEEEEEEEEE");
+	//Check if noisy is detected
+	if (noiseChecker.isNoisy()) {
 
-		noiseChecker.reset();
+		//Noisy detected for the first time
+		if(!noisyStarted){
+			alertEmitter.on();
+			Serial.println("ALERTING !!!!!!");
+			noisyStarted = true;
+			scAlertActivator.setWorking(true);
+			scAlertActivator.reset();
+		}
+
+		//Count seconds of alert state
+		scAlertActivator.hit();
+
+		//If alert time was reached, stop alert and start listen to the noise again
+		if (scAlertActivator.getSeconds() >= ALERT_DURATION) {
+			alertEmitter.off();
+			Serial.println("---> End of alert");
+			noisyStarted = false;
+			scAlertActivator.setWorking(false);
+			scAlertActivator.reset();
+			noiseChecker.reset();
+		}
+
+	} else {
+		noiseChecker.hit();
 	}
 
 }

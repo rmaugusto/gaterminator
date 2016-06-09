@@ -39,36 +39,42 @@ bool RangeLearner::isLearned() const {
 void RangeLearner::learnValue(unsigned int num) {
 
 	scLearn.hit();
+
+	//Learn util time limit is hit
 	if (scLearn.getSeconds() <= secondsToLearn) {
 
-		//Na primeira execução utiliza
-		//o min e max como valor atual
-		if (max == -1) {
-			min = num;
-			max = num;
-		}
+		//Count first DESPISED_COUNT reads despising initial reads
+		if (readsCount < DESPISED_COUNT) {
+			readsCount++;
+			Serial.println("Num despised");
+		}else if (readsCount == DESPISED_COUNT) {
+			//Force identify min and max on next
+			min = num + 1;
+			max = num - 1;
+			readsCount++;
+			Serial.println("Forcing first learn!");
+		}else{
+			if (num > max) {
+				max = num;
+				Serial.print("New MAX value: ");
+				Serial.println(max);
+			}
 
-		if (num > max) {
-			max = num;
-			Serial.print("Novo valor >> maximo aprendido: ");
-			Serial.println(max);
-		}
-
-
-		if (num < min) {
-			min = num;
-			Serial.print("Novo valor << minimo aprendido: ");
-			Serial.println(min);
+			if (num < min) {
+				min = num;
+				Serial.print("New MIN value: ");
+				Serial.println(min);
+			}
 		}
 
 	} else {
 		learned = true;
-		//Para de contar o tempo se terminou a aprendizagem
+		//Stop the timer if it is learned
 		scLearn.setWorking(false);
-		Serial.print("Valores aprendidos - Min: ");
+		Serial.print("Values learned: - Min: ");
 		Serial.print(min);
-		Serial.print("Max: ");
-		Serial.print(max);
+		Serial.print("/ Max: ");
+		Serial.println(max);
 	}
 
 }

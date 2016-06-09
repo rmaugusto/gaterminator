@@ -1,3 +1,8 @@
+Release/
+.settings/
+.project
+.cproject
+
 # Compiled Object files
 *.slo
 *.lo

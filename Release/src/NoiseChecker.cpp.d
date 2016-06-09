@@ -1,5 +1,6 @@
 src/NoiseChecker.cpp.o: ../src/NoiseChecker.cpp ../src/NoiseChecker.h \
- ../src/SecondCounter.h ../src/RangeLearner.h ../src/definitions.h \
+ ../src/SecondCounter.h ../src/RangeLearner.h ../src/DigitalController.h \
+ ../src/definitions.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino/Arduino.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino/avr/pgmspace.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino/avr/interrupt.h \
@@ -141,6 +142,8 @@ src/NoiseChecker.cpp.o: ../src/NoiseChecker.cpp ../src/NoiseChecker.h \
 ../src/SecondCounter.h:
 
 ../src/RangeLearner.h:
+
+../src/DigitalController.h:
 
 ../src/definitions.h:
 

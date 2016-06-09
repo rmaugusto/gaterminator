@@ -1,6 +1,6 @@
 src/GaterminatorApp.cpp.o: ../src/GaterminatorApp.cpp \
- ../src/GaterminatorApp.h ../src/NoiseChecker.h ../src/SecondCounter.h \
- ../src/RangeLearner.h \
+ ../src/GaterminatorApp.h ../src/DigitalController.h \
+ ../src/NoiseChecker.h ../src/SecondCounter.h ../src/RangeLearner.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino/Arduino.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino/avr/pgmspace.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino/avr/interrupt.h \
@@ -138,6 +138,8 @@ src/GaterminatorApp.cpp.o: ../src/GaterminatorApp.cpp \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino/Stream.h
 
 ../src/GaterminatorApp.h:
+
+../src/DigitalController.h:
 
 ../src/NoiseChecker.h:
 

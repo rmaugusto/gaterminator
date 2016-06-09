@@ -10,13 +10,19 @@
 
 #include "SecondCounter.h"
 
+/**
+ * This class is responsible to read a value for {secondsToLearn} seconds
+ * and learn minimal and maximal value
+ */
 class RangeLearner {
 private:
-	unsigned short secondsToLearn=10;
-	unsigned int min=-1;
-	unsigned int max=-1;
+	unsigned short secondsToLearn = 10;
+	unsigned int min = -1;
+	unsigned int max = -1;
+	unsigned char readsCount=0;
 	bool learned = false;
 	SecondCounter scLearn;
+	static const int DESPISED_COUNT = 2;
 
 public:
 	RangeLearner();

@@ -1,5 +1,5 @@
-Release/
-.settings/
+Release/*
+.settings/*
 .project
 .cproject
 

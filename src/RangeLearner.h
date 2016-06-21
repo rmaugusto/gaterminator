@@ -33,6 +33,10 @@ public:
 	void setSecondsToLearn(unsigned short secondsToLearn);
 	void learnValue(unsigned int num);
 	bool isLearned() const;
+	void reset();
+	bool isInRange(int value);
+	void setMax(unsigned int max);
+	void setMin(unsigned int min);
 };
 
 #endif /* SRC_RANGELEARNER_H_ */

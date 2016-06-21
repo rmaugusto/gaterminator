@@ -20,7 +20,7 @@ class NoiseChecker {
 private:
 	static const int MIN_NOISE_LEVEL = 0;
 	static const int MAX_NOISE_LEVEL = 100;
-	static const int LED_NOISE_PIN = 48;
+	static const int LED_NOISE_PIN = 7;
 	static const int SECONDS_TO_LEARN = 10;
 	static const int SECONDS_WAIT_NEXT_READ = 3;
 
@@ -53,6 +53,9 @@ public:
 	void hit();
 	void reset();
 	void setup();
+	bool isLearned(){
+		return rangeLearner.isLearned();
+	}
 
 };
 

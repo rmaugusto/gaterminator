@@ -9,10 +9,6 @@ RM := rm -f
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir.mk
--include src/subdir.mk
--include core/variant/subdir.mk
--include core/core/avr/subdir.mk
--include core/core/USB/subdir.mk
 -include core/core/subdir.mk
 -include objects.mk
 
@@ -62,7 +58,7 @@ EEP += \
 gaterminator.eep \
 
 FLASH_IMAGE += \
-gaterminator.bin \
+gaterminator.hex \
 
 
 # All Target
@@ -72,31 +68,31 @@ all: gaterminator
 gaterminator: $(FLASH_IMAGE)
 	@echo 'Building target: $@'
 	@echo 'Printing size:'
-	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\arm-none-eabi-gcc\4.8.3-2014q1/bin/arm-none-eabi-size" -A "C:/devel/java/arduino_wksp/gaterminator/Release/gaterminator.elf"
+	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\avr-gcc\4.8.1-arduino5/bin/avr-size" -A "C:/devel/arduino_wksp/gaterminator/Release/gaterminator.elf"
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 arduino.ar: $(AR_OBJ)
 	@echo 'Starting archiver'
-	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\arm-none-eabi-gcc\4.8.3-2014q1/bin/arm-none-eabi-ar" rcs  "C:/devel/java/arduino_wksp/gaterminator/Release/arduino.ar"    arduino.ar $(AR_OBJ)
+	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\avr-gcc\4.8.1-arduino5/bin/avr-ar" rcs  "C:/devel/arduino_wksp/gaterminator/Release/arduino.ar"    arduino.ar $(AR_OBJ)
 	@echo 'Finished building: $@'
 	@echo ' '
 
 gaterminator.elf: $(LINK_OBJ) $(AR)
 	@echo 'Starting combiner'
-	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\arm-none-eabi-gcc\4.8.3-2014q1/bin/arm-none-eabi-gcc" -mcpu=cortex-m3 -mthumb -Os -Wl,--gc-sections "-TC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/variants/arduino_due_x/linker_scripts/gcc/flash.ld" "-Wl,-Map,C:/devel/java/arduino_wksp/gaterminator/Release/gaterminator.map"  -o "C:/devel/java/arduino_wksp/gaterminator/Release/gaterminator.elf" "-LC:/devel/java/arduino_wksp/gaterminator/Release" -Wl,--cref -Wl,--check-sections -Wl,--gc-sections -Wl,--entry=Reset_Handler -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-section-align -Wl,--start-group -u _sbrk -u link -u _close -u _fstat -u _isatty -u _lseek -u _read -u _write -u _exit -u kill -u _getpid   $(LINK_OBJ) $(AR)  "C:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/variants/arduino_due_x/libsam_sam3x8e_gcc_rel.a"   -Wl,--end-group -lm -gcc
+	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\avr-gcc\4.8.1-arduino5/bin/avr-gcc" -Os -Wl,--gc-sections -mmcu=atmega328p  -o "C:/devel/arduino_wksp/gaterminator/Release/gaterminator.elf"   $(LINK_OBJ) $(AR)    "-LC:/devel/arduino_wksp/gaterminator/Release" -lm
 	@echo 'Finished building: $@'
 	@echo ' '
 
 gaterminator.eep: $(ELF)
 	@echo 'Create eeprom image'
-	${A.RECIPE.OBJCOPY.EEP.PATTERN}
+	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\avr-gcc\4.8.1-arduino5/bin/avr-objcopy" -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0  "C:/devel/arduino_wksp/gaterminator/Release/gaterminator.elf" "C:/devel/arduino_wksp/gaterminator/Release/gaterminator.eep"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-gaterminator.bin: $(EEP)
+gaterminator.hex: $(EEP)
 	@echo 'Create Flash image (ihex format)'
-	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\arm-none-eabi-gcc\4.8.3-2014q1/bin/arm-none-eabi-objcopy" -O binary  "C:/devel/java/arduino_wksp/gaterminator/Release/gaterminator.elf" "C:/devel/java/arduino_wksp/gaterminator/Release/gaterminator.bin"
+	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\avr-gcc\4.8.1-arduino5/bin/avr-objcopy" -O ihex -R .eeprom  "C:/devel/arduino_wksp/gaterminator/Release/gaterminator.elf" "C:/devel/arduino_wksp/gaterminator/Release/gaterminator.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 

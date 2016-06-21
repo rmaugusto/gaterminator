@@ -15,7 +15,6 @@ GaterminatorApp::~GaterminatorApp() {
 }
 
 void GaterminatorApp::setup() {
-
 	//Setup serial port
 	Serial.begin(SERIAL_BAUD_RATE);
 

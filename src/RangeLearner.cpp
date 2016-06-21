@@ -40,6 +40,8 @@ void RangeLearner::learnValue(unsigned int num) {
 
 	scLearn.hit();
 
+	//Serial.println(scLearn.getSeconds());
+
 	//Learn util time limit is hit
 	if (scLearn.getSeconds() <= secondsToLearn) {
 
@@ -77,4 +79,31 @@ void RangeLearner::learnValue(unsigned int num) {
 		Serial.println(max);
 	}
 
+}
+
+void RangeLearner::reset() {
+
+	min = -1;
+	max = -1;
+	readsCount=0;
+	learned = false;
+	scLearn.reset();
+	scLearn.setWorking(true);
+}
+
+bool RangeLearner::isInRange(int value) {
+
+	if(value > max || value < min)
+		return false;
+
+	return true;
+
+}
+
+void RangeLearner::setMax(unsigned int max = -1) {
+	this->max = max;
+}
+
+void RangeLearner::setMin(unsigned int min = -1) {
+	this->min = min;
 }

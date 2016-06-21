@@ -11,12 +11,14 @@
 class DigitalController {
 private:
 	unsigned int pin=0;
+	bool pinOn=false;
 public:
 	DigitalController();
 	virtual ~DigitalController();
 	void setup( unsigned int ulPin, unsigned int ulMode );
 	void on();
 	void off();
+	void toggle();
 };
 
 #endif /* SRC_DIGITALCONTROLLER_H_ */

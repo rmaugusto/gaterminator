@@ -9,7 +9,7 @@
 #define DEFINITIONS_H_
 
 //Porta de input do microfone
-#define INPUT_MIC_PIN 59
+#define INPUT_MIC_PIN 19
 
 
 #endif /* DEFINITIONS_H_ */

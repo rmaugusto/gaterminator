@@ -26,6 +26,7 @@ void NoiseChecker::hit() {
 	if (rangeLearner.isLearned()) {
 		checkNoisy();
 	} else {
+		ledController.toggle();
 		int micValue = analogRead(INPUT_MIC_PIN);
 		rangeLearner.learnValue(micValue);
 
@@ -76,9 +77,30 @@ void NoiseChecker::checkNoisy() {
 				Serial.print("NOISE DETECTED - Mapped:");
 				Serial.print(mappedValue);
 				Serial.print("/ Gross:");
-				Serial.println(micValue);
+				Serial.print(micValue);
+				Serial.print(" MAX(");
+				Serial.print(rangeLearner.getMax());
+				Serial.println(")");
 				noisyCount++;
 				scNoiseNextRead.reset();
+
+				//If sensor is out of learned range, start to learn again
+				if(micValue > rangeLearner.getMax()){
+					rangeLearner.setMax(micValue);
+					Serial.print("New MAX value learned: ");
+					Serial.println(micValue);
+				}
+
+				if(micValue < rangeLearner.getMin()){
+					rangeLearner.setMin(micValue);
+					Serial.print("New MIN value learned: ");
+					Serial.println(micValue);
+				}
+
+//				if(rangeLearner.isInRange(micValue) == false){
+//					rangeLearner.reset();
+//				}
+
 			}
 
 			//If noise was detected MAX_NOISES, it is considered
@@ -86,6 +108,7 @@ void NoiseChecker::checkNoisy() {
 			if (noisyCount >= MAX_NOISES) {
 				reset();
 				noisy = true;
+				//rangeLearner.reset();
 			}
 		}
 	}

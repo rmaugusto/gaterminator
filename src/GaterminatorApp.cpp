@@ -23,9 +23,11 @@ void GaterminatorApp::setup() {
 	scAlertActivator.setMaxSeconds(200);
 	scAlertActivator.setWorking(false);
 	noisyStarted = false;
+
 }
 
 void GaterminatorApp::loop() {
+
 
 	//Check if noisy is detected
 	if (noiseChecker.isNoisy()) {

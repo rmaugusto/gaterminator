@@ -10,7 +10,6 @@
 
 #include "DigitalController.h"
 #include "NoiseChecker.h"
-//#include <IRremote.h>
 
 /**
  * This class is responsible to manage the application.

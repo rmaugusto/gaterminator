@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/AbstractEventVoid.cpp \
 ../src/DigitalController.cpp \
 ../src/GaterminatorApp.cpp \
 ../src/NoiseChecker.cpp \
@@ -12,6 +13,7 @@ CPP_SRCS += \
 ../src/gaterminator.cpp 
 
 LINK_OBJ += \
+./src/AbstractEventVoid.cpp.o \
 ./src/DigitalController.cpp.o \
 ./src/GaterminatorApp.cpp.o \
 ./src/NoiseChecker.cpp.o \
@@ -20,6 +22,7 @@ LINK_OBJ += \
 ./src/gaterminator.cpp.o 
 
 CPP_DEPS += \
+./src/AbstractEventVoid.cpp.d \
 ./src/DigitalController.cpp.d \
 ./src/GaterminatorApp.cpp.d \
 ./src/NoiseChecker.cpp.d \
@@ -29,45 +32,52 @@ CPP_DEPS += \
 
 
 # Each subdirectory must supply rules for building sources it contributes
+src/AbstractEventVoid.cpp.o: ../src/AbstractEventVoid.cpp
+	@echo 'Building file: $<'
+	@echo 'Starting C++ compile'
+	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\avr-gcc\4.8.1-arduino5/bin/avr-g++" -c -g -Os -std=gnu++11 -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=10606 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR     -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino" -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\standard" -I"C:\Users\ricardo\Arduino\libraries\IRremote" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -D__IN_ECLIPSE__=1 -x c++ "$<"  -o  "$@"   -Wall
+	@echo 'Finished building: $<'
+	@echo ' '
+
 src/DigitalController.cpp.o: ../src/DigitalController.cpp
 	@echo 'Building file: $<'
 	@echo 'Starting C++ compile'
-	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\arm-none-eabi-gcc\4.8.3-2014q1/bin/arm-none-eabi-g++" -c -g -Os -std=gnu++11 -ffunction-sections -fdata-sections -nostdlib -fno-threadsafe-statics --param max-inline-insns-single=500 -fno-rtti -fno-exceptions -Dprintf=iprintf -MMD -mcpu=cortex-m3 -mthumb -DF_CPU=84000000L -DARDUINO=10606 -DARDUINO_SAM_DUE -DARDUINO_ARCH_SAM  -D__SAM3X8E__ -mthumb -DUSB_VID=0x2341 -DUSB_PID=0x003e -DUSBCON  -DUSB_MANUFACTURER=\""Arduino LLC"\" -DUSB_PRODUCT=\""Arduino Due"\" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/libsam" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/CMSIS/CMSIS/Include/" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/CMSIS/Device/ATMEL/"   -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino" -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\variants\arduino_due_x" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -D__IN_ECLIPSE__=1 -x c++ "$<"  -o  "$@"   -Wall
+	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\avr-gcc\4.8.1-arduino5/bin/avr-g++" -c -g -Os -std=gnu++11 -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=10606 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR     -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino" -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\standard" -I"C:\Users\ricardo\Arduino\libraries\IRremote" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -D__IN_ECLIPSE__=1 -x c++ "$<"  -o  "$@"   -Wall
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/GaterminatorApp.cpp.o: ../src/GaterminatorApp.cpp
 	@echo 'Building file: $<'
 	@echo 'Starting C++ compile'
-	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\arm-none-eabi-gcc\4.8.3-2014q1/bin/arm-none-eabi-g++" -c -g -Os -std=gnu++11 -ffunction-sections -fdata-sections -nostdlib -fno-threadsafe-statics --param max-inline-insns-single=500 -fno-rtti -fno-exceptions -Dprintf=iprintf -MMD -mcpu=cortex-m3 -mthumb -DF_CPU=84000000L -DARDUINO=10606 -DARDUINO_SAM_DUE -DARDUINO_ARCH_SAM  -D__SAM3X8E__ -mthumb -DUSB_VID=0x2341 -DUSB_PID=0x003e -DUSBCON  -DUSB_MANUFACTURER=\""Arduino LLC"\" -DUSB_PRODUCT=\""Arduino Due"\" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/libsam" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/CMSIS/CMSIS/Include/" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/CMSIS/Device/ATMEL/"   -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino" -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\variants\arduino_due_x" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -D__IN_ECLIPSE__=1 -x c++ "$<"  -o  "$@"   -Wall
+	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\avr-gcc\4.8.1-arduino5/bin/avr-g++" -c -g -Os -std=gnu++11 -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=10606 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR     -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino" -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\standard" -I"C:\Users\ricardo\Arduino\libraries\IRremote" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -D__IN_ECLIPSE__=1 -x c++ "$<"  -o  "$@"   -Wall
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/NoiseChecker.cpp.o: ../src/NoiseChecker.cpp
 	@echo 'Building file: $<'
 	@echo 'Starting C++ compile'
-	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\arm-none-eabi-gcc\4.8.3-2014q1/bin/arm-none-eabi-g++" -c -g -Os -std=gnu++11 -ffunction-sections -fdata-sections -nostdlib -fno-threadsafe-statics --param max-inline-insns-single=500 -fno-rtti -fno-exceptions -Dprintf=iprintf -MMD -mcpu=cortex-m3 -mthumb -DF_CPU=84000000L -DARDUINO=10606 -DARDUINO_SAM_DUE -DARDUINO_ARCH_SAM  -D__SAM3X8E__ -mthumb -DUSB_VID=0x2341 -DUSB_PID=0x003e -DUSBCON  -DUSB_MANUFACTURER=\""Arduino LLC"\" -DUSB_PRODUCT=\""Arduino Due"\" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/libsam" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/CMSIS/CMSIS/Include/" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/CMSIS/Device/ATMEL/"   -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino" -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\variants\arduino_due_x" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -D__IN_ECLIPSE__=1 -x c++ "$<"  -o  "$@"   -Wall
+	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\avr-gcc\4.8.1-arduino5/bin/avr-g++" -c -g -Os -std=gnu++11 -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=10606 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR     -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino" -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\standard" -I"C:\Users\ricardo\Arduino\libraries\IRremote" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -D__IN_ECLIPSE__=1 -x c++ "$<"  -o  "$@"   -Wall
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/RangeLearner.cpp.o: ../src/RangeLearner.cpp
 	@echo 'Building file: $<'
 	@echo 'Starting C++ compile'
-	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\arm-none-eabi-gcc\4.8.3-2014q1/bin/arm-none-eabi-g++" -c -g -Os -std=gnu++11 -ffunction-sections -fdata-sections -nostdlib -fno-threadsafe-statics --param max-inline-insns-single=500 -fno-rtti -fno-exceptions -Dprintf=iprintf -MMD -mcpu=cortex-m3 -mthumb -DF_CPU=84000000L -DARDUINO=10606 -DARDUINO_SAM_DUE -DARDUINO_ARCH_SAM  -D__SAM3X8E__ -mthumb -DUSB_VID=0x2341 -DUSB_PID=0x003e -DUSBCON  -DUSB_MANUFACTURER=\""Arduino LLC"\" -DUSB_PRODUCT=\""Arduino Due"\" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/libsam" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/CMSIS/CMSIS/Include/" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/CMSIS/Device/ATMEL/"   -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino" -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\variants\arduino_due_x" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -D__IN_ECLIPSE__=1 -x c++ "$<"  -o  "$@"   -Wall
+	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\avr-gcc\4.8.1-arduino5/bin/avr-g++" -c -g -Os -std=gnu++11 -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=10606 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR     -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino" -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\standard" -I"C:\Users\ricardo\Arduino\libraries\IRremote" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -D__IN_ECLIPSE__=1 -x c++ "$<"  -o  "$@"   -Wall
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/SecondCounter.cpp.o: ../src/SecondCounter.cpp
 	@echo 'Building file: $<'
 	@echo 'Starting C++ compile'
-	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\arm-none-eabi-gcc\4.8.3-2014q1/bin/arm-none-eabi-g++" -c -g -Os -std=gnu++11 -ffunction-sections -fdata-sections -nostdlib -fno-threadsafe-statics --param max-inline-insns-single=500 -fno-rtti -fno-exceptions -Dprintf=iprintf -MMD -mcpu=cortex-m3 -mthumb -DF_CPU=84000000L -DARDUINO=10606 -DARDUINO_SAM_DUE -DARDUINO_ARCH_SAM  -D__SAM3X8E__ -mthumb -DUSB_VID=0x2341 -DUSB_PID=0x003e -DUSBCON  -DUSB_MANUFACTURER=\""Arduino LLC"\" -DUSB_PRODUCT=\""Arduino Due"\" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/libsam" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/CMSIS/CMSIS/Include/" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/CMSIS/Device/ATMEL/"   -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino" -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\variants\arduino_due_x" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -D__IN_ECLIPSE__=1 -x c++ "$<"  -o  "$@"   -Wall
+	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\avr-gcc\4.8.1-arduino5/bin/avr-g++" -c -g -Os -std=gnu++11 -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=10606 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR     -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino" -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\standard" -I"C:\Users\ricardo\Arduino\libraries\IRremote" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -D__IN_ECLIPSE__=1 -x c++ "$<"  -o  "$@"   -Wall
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/gaterminator.cpp.o: ../src/gaterminator.cpp
 	@echo 'Building file: $<'
 	@echo 'Starting C++ compile'
-	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\arm-none-eabi-gcc\4.8.3-2014q1/bin/arm-none-eabi-g++" -c -g -Os -std=gnu++11 -ffunction-sections -fdata-sections -nostdlib -fno-threadsafe-statics --param max-inline-insns-single=500 -fno-rtti -fno-exceptions -Dprintf=iprintf -MMD -mcpu=cortex-m3 -mthumb -DF_CPU=84000000L -DARDUINO=10606 -DARDUINO_SAM_DUE -DARDUINO_ARCH_SAM  -D__SAM3X8E__ -mthumb -DUSB_VID=0x2341 -DUSB_PID=0x003e -DUSBCON  -DUSB_MANUFACTURER=\""Arduino LLC"\" -DUSB_PRODUCT=\""Arduino Due"\" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/libsam" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/CMSIS/CMSIS/Include/" "-IC:/java/eclipseArduino/arduinoPlugin/packages/arduino/hardware/sam/1.6.8/system/CMSIS/Device/ATMEL/"   -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\cores\arduino" -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\sam\1.6.8\variants\arduino_due_x" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -D__IN_ECLIPSE__=1 -x c++ "$<"  -o  "$@"   -Wall
+	"C:\java\eclipseArduino\arduinoPlugin\tools\arduino\avr-gcc\4.8.1-arduino5/bin/avr-g++" -c -g -Os -std=gnu++11 -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=10606 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR     -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino" -I"C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\standard" -I"C:\Users\ricardo\Arduino\libraries\IRremote" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -D__IN_ECLIPSE__=1 -x c++ "$<"  -o  "$@"   -Wall
 	@echo 'Finished building: $<'
 	@echo ' '
 

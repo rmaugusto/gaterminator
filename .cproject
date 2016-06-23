@@ -21,6 +21,7 @@
 								<option id="it.baeyens.arduino.compiler.cpp.sketch.option.incpath.1472212264" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.cpp.sketch.option.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/gaterminator/core/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/gaterminator/core/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/gaterminator/libraries/IRremote}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.cpp.sketch.input.608151255" name="CPP source files" superClass="it.baeyens.arduino.compiler.cpp.sketch.input"/>
 							</tool>
@@ -28,6 +29,7 @@
 								<option id="it.baeyens.arduino.compiler.c.sketch.option.incpath.1861378461" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.c.sketch.option.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/gaterminator/core/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/gaterminator/core/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/gaterminator/libraries/IRremote}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.c.sketch.input.1179048921" name="C Source Files" superClass="it.baeyens.arduino.compiler.c.sketch.input"/>
 							</tool>

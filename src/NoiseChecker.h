@@ -26,7 +26,7 @@ private:
 
 	//Based on MIN_NOISE_LEVEL e MAX_NOISE_LEVEL
 	//After this THRESHOLD it is identified a noise
-	static const int THRESHOLD = 75;
+	static const int THRESHOLD = 60;
 
 	//If MAX_NOISE was not reached in MAX_SECONDS_CONSIDER_NOISY, start counting again
 	static const int MAX_SECONDS_CONSIDER_NOISY = 15;

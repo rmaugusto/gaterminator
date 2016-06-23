@@ -10,7 +10,8 @@ src/GaterminatorApp.cpp.o: ../src/GaterminatorApp.cpp \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/Printable.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/USBAPI.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/Arduino.h \
- C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\standard/pins_arduino.h
+ C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\standard/pins_arduino.h \
+ ../src/Timer.h ../src/AbstractEventVoid.h
 
 ../src/GaterminatorApp.h:
 
@@ -35,3 +36,7 @@ C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\
 C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/Arduino.h:
 
 C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\standard/pins_arduino.h:
+
+../src/Timer.h:
+
+../src/AbstractEventVoid.h:

@@ -6,13 +6,49 @@
  */
 
 #include "Timer.h"
+#include "Arduino.h"
 
 Timer::Timer() {
-	// TODO Auto-generated constructor stub
 
 }
 
 Timer::~Timer() {
-	// TODO Auto-generated destructor stub
 }
 
+void Timer::reset() {
+	seconds = 0;
+	previousTime = millis();
+}
+
+void Timer::start() {
+	reset();
+	running = true;
+}
+
+void Timer::stop() {
+	running = false;
+}
+
+unsigned int Timer::getTriggerTime() const {
+	return triggerTime;
+}
+
+void Timer::setTriggerTime(unsigned int triggerTime) {
+	this->triggerTime = triggerTime;
+}
+
+void Timer::hit() {
+
+	if (running) {
+		if (millis() >= (previousTime)) {
+			previousTime = previousTime + 1000;  // use 100000 for uS
+			seconds++;
+
+			if(triggerTime >= seconds){
+				fire();
+				reset();
+			}
+
+		}
+	}
+}

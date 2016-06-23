@@ -22,6 +22,7 @@ public:
 
 	void setup();
 	void loop();
+	void timerHit();
 
 };
 

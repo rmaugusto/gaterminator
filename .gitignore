@@ -1,5 +1,4 @@
-Release/*
-.settings/*
+/.settings/
 .project
 .cproject
 
@@ -31,3 +30,4 @@ Release/*
 *.exe
 *.out
 *.app
+/Release/

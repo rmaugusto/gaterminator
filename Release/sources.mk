@@ -37,6 +37,9 @@ CPP_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Release_old \
+Release_old/core \
+Release_old/src \
 core/core \
 src \
 

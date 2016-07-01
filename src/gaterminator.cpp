@@ -1,5 +1,7 @@
 // Do not remove the include below
 #include "gaterminator.h"
+#include "definitions.h"
+#include <stdlib.h>
 
 void setup()
 {

@@ -16,7 +16,7 @@ Timer::~Timer() {
 }
 
 void Timer::reset() {
-	seconds = 0;
+	seconds = -1;
 	previousTime = millis();
 }
 
@@ -29,26 +29,42 @@ void Timer::stop() {
 	running = false;
 }
 
-unsigned int Timer::getTriggerTime() const {
-	return triggerTime;
-}
-
-void Timer::setTriggerTime(unsigned int triggerTime) {
-	this->triggerTime = triggerTime;
-}
-
 void Timer::hit() {
 
 	if (running) {
 		if (millis() >= (previousTime)) {
-			previousTime = previousTime + 1000;  // use 100000 for uS
+
+			previousTime = previousTime + ONE_SEC;  // use 100000 for uS
 			seconds++;
 
-			if(triggerTime >= seconds){
+			if (seconds >= timeout) {
 				fire();
-				reset();
+
+				if (resetOnTimeout)
+					reset();
+
 			}
 
 		}
 	}
+}
+
+uint32_t Timer::getTimeout() const {
+	return timeout;
+}
+
+void Timer::setTimeout(uint32_t timeout = 0) {
+	this->timeout = timeout;
+}
+
+bool Timer::isResetOnTimeout() const {
+	return resetOnTimeout;
+}
+
+void Timer::setResetOnTimeout(bool resetOnTimeout) {
+	this->resetOnTimeout = resetOnTimeout;
+}
+
+uint32_t Timer::getSeconds() const {
+	return seconds;
 }

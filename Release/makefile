@@ -11,6 +11,9 @@ RM := rm -f
 -include subdir.mk
 -include src/subdir.mk
 -include core/core/subdir.mk
+-include Release_old/src/subdir.mk
+-include Release_old/core/subdir.mk
+-include Release_old/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

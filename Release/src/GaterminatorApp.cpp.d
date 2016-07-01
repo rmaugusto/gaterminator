@@ -1,5 +1,8 @@
 src/GaterminatorApp.cpp.o: ../src/GaterminatorApp.cpp \
- ../src/GaterminatorApp.h \
+ ../src/GaterminatorApp.h ../src/Timer.h \
+ ../src/AbstractActionListenerFire.h ../src/ActionListener.h \
+ ../src/MinMaxDetector.h ../src/NoiseDetectable.h ../src/NoisyDetector.h \
+ ../src/DigitalController.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/Arduino.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/binary.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/WCharacter.h \
@@ -11,9 +14,23 @@ src/GaterminatorApp.cpp.o: ../src/GaterminatorApp.cpp \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/USBAPI.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/Arduino.h \
  C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\standard/pins_arduino.h \
- ../src/Timer.h ../src/AbstractEventVoid.h
+ ../src/definitions.h
 
 ../src/GaterminatorApp.h:
+
+../src/Timer.h:
+
+../src/AbstractActionListenerFire.h:
+
+../src/ActionListener.h:
+
+../src/MinMaxDetector.h:
+
+../src/NoiseDetectable.h:
+
+../src/NoisyDetector.h:
+
+../src/DigitalController.h:
 
 C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/Arduino.h:
 
@@ -37,6 +54,4 @@ C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\
 
 C:\java\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\standard/pins_arduino.h:
 
-../src/Timer.h:
-
-../src/AbstractEventVoid.h:
+../src/definitions.h:
